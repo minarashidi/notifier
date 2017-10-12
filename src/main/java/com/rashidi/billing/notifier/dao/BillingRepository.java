@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface BillingRepository extends JpaRepository<Billing, Long> {
 
-    @Query("select b from Billing b where b.dueDate <= :date")
+    @Query("select b from Billing b where b.dueDate <= :date and b.notificationStatus ='NEW'")
     List<Billing> findByDueDate(@Param("date") Instant date);
 
 }
